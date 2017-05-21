@@ -14,7 +14,7 @@ from subprocess import PIPE, STDOUT, Popen
 from time import time
 import sys
 
-import tests  # for .version
+from . import tests  # for .version
 
 __all__ = ('run',)
 __version__ = '17.04.07'
@@ -60,7 +60,7 @@ if __name__ == '__main__':  # MCCABE expected
     while args and args[0].startswith('-'):
         arg = args.pop(0)
         if '-help'.startswith(arg):
-            print('usage: %s [-failedonly] [-raiser] [-results] [-verbose] [tests/test...py ...]' % (argv0,))
+            print(('usage: %s [-failedonly] [-raiser] [-results] [-verbose] [tests/test...py ...]' % (argv0,)))
             sys.exit(0)
         elif '-failedonly'.startswith(arg):
             _failedonly = True
@@ -71,7 +71,7 @@ if __name__ == '__main__':  # MCCABE expected
         elif '-verbose'.startswith(arg):
             _verbose = True
         else:
-            print('%s invalid option: %s' % (argv0, arg))
+            print(('%s invalid option: %s' % (argv0, arg)))
             sys.exit(1)
 
     # shorten prompt
@@ -111,16 +111,16 @@ if __name__ == '__main__':  # MCCABE expected
             _write(r)
 
         if 'Traceback' in r:
-            print('%s\n' % (r,))
+            print(('%s\n' % (r,)))
             if _raiser:
                 break
         elif _failedonly:
             for t in r.split('\n'):
                 if 'FAILED' in t or 'passed' in t:
-                    print(t.rstrip())
+                    print((t.rstrip()))
             print('')
         elif _verbose:
-            print('%s\n' % (r,))
+            print(('%s\n' % (r,)))
 
     if f:
         x = '%d FAILED' % (f,)

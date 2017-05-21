@@ -104,7 +104,7 @@ _
 '''
 
 try:
-    import bases  # PYCHOK expected
+    from . import bases  # PYCHOK expected
 except ImportError:
     # extend sys.path to include this very directory
     # such that all public and private sub-modules can
@@ -114,13 +114,13 @@ except ImportError:
     del os, sys
 
 # keep ellipsoidal and spherical modules as modules
-import ellipsoidalNvector  # PYCHOK false
-import ellipsoidalVincenty  # PYCHOK false
-import sphericalNvector  # PYCHOK false
-import sphericalTrigonometry  # PYCHOK false
-import nvector  # PYCHOK false
-import vector3d  # PYCHOK false
-import geohash
+from . import ellipsoidalNvector  # PYCHOK false
+from . import ellipsoidalVincenty  # PYCHOK false
+from . import sphericalNvector  # PYCHOK false
+from . import sphericalTrigonometry  # PYCHOK false
+from . import nvector  # PYCHOK false
+from . import vector3d  # PYCHOK false
+from . import geohash
 
 Geohash       = geohash.Geohash
 VincentyError = ellipsoidalVincenty.VincentyError
@@ -134,29 +134,29 @@ __all__ = ('ellipsoidalNvector', 'ellipsoidalVincenty',
 __version__ = '17.05.15'
 
 # see setup.py for similar logic
-version = '.'.join(map(str, map(int, __version__.split('.'))))
+version = '.'.join(map(str, list(map(int, __version__.split('.')))))
 
 # lift all public classes, constants, functions, etc. but
 # only from the following sub-modules ... (see also David
 # Beazley's <http://dabeaz.com/modulepackage/index.html>)
-from bases    import isclockwise  # PYCHOK expected
-from datum    import *  # PYCHOK __all__
-from dms      import *  # PYCHOK __all__
-from lcc      import *  # PYCHOK __all__
-from mgrs     import *  # PYCHOK __all__
-from osgr     import *  # PYCHOK __all__
-from simplify import *  # PYCHOK __all__
-from utils    import *  # PYCHOK __all__
-from utm      import *  # PYCHOK __all__
+from .bases    import isclockwise  # PYCHOK expected
+from .datum    import *  # PYCHOK __all__
+from .dms      import *  # PYCHOK __all__
+from .lcc      import *  # PYCHOK __all__
+from .mgrs     import *  # PYCHOK __all__
+from .osgr     import *  # PYCHOK __all__
+from .simplify import *  # PYCHOK __all__
+from .utils    import *  # PYCHOK __all__
+from .utm      import *  # PYCHOK __all__
 
-import datum     # PYCHOK expected
-import dms       # PYCHOK expected
-import lcc       # PYCHOK expected
-import mgrs      # PYCHOK expected
-import osgr      # PYCHOK expected
-import simplify  # PYCHOK expected
-import utils     # PYCHOK expected
-import utm       # PYCHOK expected
+from . import datum     # PYCHOK expected
+from . import dms       # PYCHOK expected
+from . import lcc       # PYCHOK expected
+from . import mgrs      # PYCHOK expected
+from . import osgr      # PYCHOK expected
+from . import simplify  # PYCHOK expected
+from . import utils     # PYCHOK expected
+from . import utm       # PYCHOK expected
 
 # concat __all__ with the public classes, constants,
 # functions, etc. from the sub-modules mentioned above

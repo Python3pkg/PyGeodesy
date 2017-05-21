@@ -29,11 +29,11 @@ U{http://wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system}.
 @newfield example: Example, Examples
 '''
 
-from bases import Base
-from datum import Datums
-from dms import S_DEG
-from ellipsoidalBase import LatLonEllipsoidalBase
-from utils import EPS, degrees, degrees90, degrees180, \
+from .bases import Base
+from .datum import Datums
+from .dms import S_DEG
+from .ellipsoidalBase import LatLonEllipsoidalBase
+from .utils import EPS, degrees, degrees90, degrees180, \
                   fdot3, fStr, hypot1, isscalar, len2, map2, \
                   radians, wrap90, wrap180
 
@@ -66,7 +66,7 @@ class _Ks(object):
            @param x: Eta angle (radians).
            @param y: Ksi angle (radians).
         '''
-        n, j2 = len2(range(2, len(AB) * 2, 2))
+        n, j2 = len2(list(range(2, len(AB) * 2, 2)))
 
         self._ab = AB[1:]  # 0-origin
         self._pq = map2(mul, j2, self._ab)
@@ -365,7 +365,7 @@ class Utm(Base):
            @return: The MGRS grid reference (L{Mgrs}).
         '''
         if self._mgrs is None:
-            from mgrs import toMgrs  # PYCHOK recursive import
+            from .mgrs import toMgrs  # PYCHOK recursive import
             self._mgrs = toMgrs(self)
         return self._mgrs
 
@@ -459,7 +459,7 @@ def parseUTM(strUTM, datum=Datums.WGS84):
             z = int(z)
         else:
             z = z.upper()
-        e, n = map(float, u[2:])
+        e, n = list(map(float, u[2:]))
     except ValueError:
         raise ValueError('%s invalid: %r' % ('strUTM', strUTM))
 

@@ -11,11 +11,11 @@ U{http://www.movable-type.co.uk/scripts/geodesy/docs/latlon-ellipsoidal.js.html}
 @newfield example: Example, Examples
 '''
 
-from bases import LatLonHeightBase
-from datum import Datum, Datums
-from dms import parse3llh
-from utils import EPS, degrees90, degrees180, hypot1
-from vector3d import Vector3d
+from .bases import LatLonHeightBase
+from .datum import Datum, Datums
+from .dms import parse3llh
+from .utils import EPS, degrees90, degrees180, hypot1
+from .vector3d import Vector3d
 
 from math import atan2, copysign, cos, hypot, sin, sqrt
 
@@ -301,7 +301,7 @@ class LatLonEllipsoidalBase(LatLonHeightBase):
            @return: The OSGR coordinate (L{Osgr}).
         '''
         if self._osgr is None:
-            from osgr import toOsgr  # PYCHOK recursive import
+            from .osgr import toOsgr  # PYCHOK recursive import
             self._osgr = toOsgr(self, datum=self.datum)
             self._osgr._latlon = self
         return self._osgr
@@ -314,7 +314,7 @@ class LatLonEllipsoidalBase(LatLonHeightBase):
            @return: The UTM coordinate (L{Utm}).
         '''
         if self._utm is None:
-            from utm import toUtm  # PYCHOK recursive import
+            from .utm import toUtm  # PYCHOK recursive import
             self._utm = toUtm(self, datum=self.datum)
             self._utm._latlon = self
         return self._utm

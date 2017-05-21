@@ -14,8 +14,8 @@ and U{https://pypi.python.org/pypi/pygeohash}.
 @newfield example: Example, Examples
 '''
 
-from dms import parseDMS
-from utils import EPS, R_M, favg, fStr, hsin3, map2
+from .dms import parseDMS
+from .utils import EPS, R_M, favg, fStr, hsin3, map2
 
 from math import cos, hypot, log10, radians
 
@@ -62,7 +62,7 @@ _Sizes = (  # radius = sqrt(latHeight * lonWidth / PI)
     (      0.0186,  0.0372,   0.015))  # 12
 
 try:
-    _Str = str, basestring
+    _Str = str, str
 except NameError:
     _Str = str
 

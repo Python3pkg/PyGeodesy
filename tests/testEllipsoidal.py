@@ -6,7 +6,7 @@
 __all__ = ('Tests',)
 __version__ = '17.05.06'
 
-from tests import Tests as _Tests
+from .tests import Tests as _Tests
 
 from pygeodesy import F_D, F_DMS, VincentyError, bearingDMS, \
                       compassDMS, Datums, fStr, normDMS, wrap360

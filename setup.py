@@ -30,7 +30,7 @@ def _version():
         for t in f.readlines():
             if t.startswith('__version__'):
                 v = t.split('=')[-1].strip().strip("'").strip('"')
-                return '.'.join(map(str, map(int, v.split('.'))))
+                return '.'.join(map(str, list(map(int, v.split('.')))))
 
 
 def _long_description():

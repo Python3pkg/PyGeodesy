@@ -29,11 +29,11 @@ to a normalised version of an (ECEF) cartesian coordinate.
 @newfield example: Example, Examples
 '''
 
-from datum import R_M
-from nvector import NorthPole, LatLonNvectorBase, \
+from .datum import R_M
+from .nvector import NorthPole, LatLonNvectorBase, \
                     Nvector as NvectorBase, sumOf
-from sphericalBase import LatLonSphericalBase
-from utils import PI, PI2, PI_2, degrees360, fsum, isscalar
+from .sphericalBase import LatLonSphericalBase
+from .utils import PI, PI2, PI_2, degrees360, fsum, isscalar
 
 from math import atan2, cos, radians, sin
 

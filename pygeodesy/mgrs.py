@@ -25,10 +25,10 @@ and U{https://en.wikipedia.org/wiki/Military_grid_reference_system}.
 @newfield example: Example, Examples
 '''
 
-from bases import Base
-from datum import Datums
-from utils import halfs
-from utm   import toUtm, Utm, _toZBL
+from .bases import Base
+from .datum import Datums
+from .utils import halfs
+from .utm   import toUtm, Utm, _toZBL
 
 from math import log10
 import re  # PYCHOK warning locale.Error
@@ -269,7 +269,7 @@ def parseMGRS(strMGRS, datum=Datums.WGS84):
             m = _mg(_GZDre, m[0]) + m[1:]
         if len(m) != 4:  # 01A BC 1234 12345
             raise ValueError
-        e, n = map(_s2m, m[2:])
+        e, n = list(map(_s2m, m[2:]))
     except ValueError:
         raise ValueError('%s invalid: %r' % ('strMGRS', strMGRS))
 

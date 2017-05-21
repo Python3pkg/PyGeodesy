@@ -31,12 +31,12 @@ U{http://www.ordnancesurvey.co.uk/blog/2014/12/2}.
 '''
 
 # force int division to yield float quotient
-from __future__ import division as _
+
 if not 1/2:  # PYCHOK 1/2 == 0
     raise ImportError('1/2 == %d' % (1/2,))
 
-from bases import Base, Named
-from utils import R_M, cbrt, cbrt2, fdot, fStr, \
+from .bases import Base, Named
+from .utils import R_M, cbrt, cbrt2, fdot, fStr, \
                   m2km, m2NM, m2SM, radians
 
 from math import atanh, sqrt
@@ -76,12 +76,12 @@ class _Enum(dict, Named):
         return '\n'.join('%s.%s: %r' % (self._name, n, v) for n, v in sorted(self.items()))
 
     def __str__(self):
-        return self._name + ', '.join(sorted('.' + n for n in self.keys()))
+        return self._name + ', '.join(sorted('.' + n for n in list(self.keys())))
 
     def _assert(self, **kwds):
         '''(INTERNAL) Check names against given names.
         '''
-        for a, v in kwds.items():
+        for a, v in list(kwds.items()):
             assert getattr(self, a) is v
 
 
@@ -677,7 +677,7 @@ if __name__ == '__main__':
 
     # print all
     for e in (Ellipsoids, Transforms, Datums):
-        print('\n%r' % (e,))
+        print(('\n%r' % (e,)))
 
     E = Datums.WGS84.ellipsoid
     e = (E.a - E.b) / (E.a + E.b) - E.n
@@ -685,7 +685,7 @@ if __name__ == '__main__':
         'A=%r, e=%.10f, f=1/%.10f, n=%.10f(%.10e)' % (E.A, E.e, 1/E.f, E.n, e),
         'Alpha6=%r' % (E.Alpha6,),
         'Beta6=%r' % (E.Beta6,))
-    print('\n%s: %s' % (E.name, ',\n       '.join(t)))
+    print(('\n%s: %s' % (E.name, ',\n       '.join(t))))
 
 # **) MIT License
 #

@@ -6,7 +6,7 @@
 __all__ = ('Tests',)
 __version__ = '17.04.15'
 
-from tests import secs2str, Tests as _Tests
+from .tests import secs2str, Tests as _Tests
 
 from pygeodesy import simplify1, simplify2, \
                       simplifyRDP, simplifyRDPm, \
@@ -44,7 +44,7 @@ if __name__ == '__main__':  # PYCHOK internal error?
     # usage: python testSimplify [[1-9] [RDP RDPm VW VWm ...]]
 
     import sys
-    from testRoutes import Pts, PtsFFI  # RdpFFI
+    from .testRoutes import Pts, PtsFFI  # RdpFFI
 
     # simplifyXYZ functions to run, all otherwise
     _Simplifys = sys.argv[2:]

@@ -6,7 +6,7 @@
 # Tested with 64-bit Python 2.7.13 and 3.6.0 on macOS 10.12.3 Sierra.
 
 try:
-    from run import run
+    from .run import run
 except ImportError:  # Python 3+ ModuleNotFoundError
     from .run import run  # PYCHOK expected
 

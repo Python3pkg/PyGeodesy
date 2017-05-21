@@ -21,14 +21,14 @@ U{http://www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Represent
 @newfield example: Example, Examples
 '''
 
-from datum import Datum, Datums
-from dms import F_D, toDMS
-from ellipsoidalBase import CartesianBase, LatLonEllipsoidalBase
-from nvector import NorthPole, LatLonNvectorBase, \
+from .datum import Datum, Datums
+from .dms import F_D, toDMS
+from .ellipsoidalBase import CartesianBase, LatLonEllipsoidalBase
+from .nvector import NorthPole, LatLonNvectorBase, \
                     Nvector as NvectorBase, sumOf
-from utils import EPS, degrees90, degrees360, cbrt, fdot, fStr, \
+from .utils import EPS, degrees90, degrees360, cbrt, fdot, fStr, \
                   hypot3, radians
-from vector3d import Vector3d
+from .vector3d import Vector3d
 
 from math import asin, atan2, cos, hypot, sin, sqrt
 

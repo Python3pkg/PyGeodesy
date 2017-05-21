@@ -28,10 +28,10 @@ U{https://en.wikipedia.org/wiki/Transverse_Mercator:_Redfearn_series}.
 @newfield example: Example, Examples
 '''
 
-from bases import Base
-from datum import Datums
-from ellipsoidalBase import LatLonEllipsoidalBase
-from utils import degrees90, degrees180, false2f, fdot, \
+from .bases import Base
+from .datum import Datums
+from .ellipsoidalBase import LatLonEllipsoidalBase
+from .utils import degrees90, degrees180, false2f, fdot, \
                   halfs, isscalar, radians
 
 from math import cos, sin, sqrt, tan
@@ -312,13 +312,13 @@ def parseOSGR(strOSGR):
         if len(g) == 2:  # "easting,northing"
             if len(s) < 13:
                 raise ValueError  # caught below
-            e, n = map(_s2f, g)
+            e, n = list(map(_s2f, g))
 
         else:  # "GR easting northing"
 
             g, s = s[:2], s[2:].strip()
 
-            e, n = map(_c2i, g)
+            e, n = list(map(_c2i, g))
             n, m = divmod(n, 5)
             E = ((e - 2) % 5) * 5 + m
             N = 19 - (e // 5) * 5 - n

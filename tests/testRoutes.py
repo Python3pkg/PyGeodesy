@@ -17002,7 +17002,7 @@ VwPts = [_LatLon(*ll) for ll in (
 
 if __name__ == '__main__':
 
-    from tests import Tests
+    from .tests import Tests
 
     t = Tests(__file__, __version__)
     t.results()

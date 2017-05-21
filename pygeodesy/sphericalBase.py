@@ -11,10 +11,10 @@ U{http://www.movable-type.co.uk/scripts/latlong.html}.
 @newfield example: Example, Examples
 '''
 
-from bases import LatLonHeightBase
-from datum import R_M, Datum, Datums
-from dms   import parse3llh
-from utils import EPS, PI, PI2, PI_2, \
+from .bases import LatLonHeightBase
+from .datum import R_M, Datum, Datums
+from .dms   import parse3llh
+from .utils import EPS, PI, PI2, PI_2, \
                   degrees90, degrees180, degrees360, \
                   favg, radians, tanPI_2_2, wrapPI
 

@@ -12,11 +12,11 @@ see U{http://www.movable-type.co.uk/scripts/latlong.html}.
 @newfield example: Example, Examples
 '''
 
-from datum import R_M
-from sphericalBase import LatLonSphericalBase
-from utils import EPS, PI2, PI_2, degrees90, degrees180, degrees360, \
+from .datum import R_M
+from .sphericalBase import LatLonSphericalBase
+from .utils import EPS, PI2, PI_2, degrees90, degrees180, degrees360, \
                   favg, fsum, hsin3, map1, radians, wrap180, wrapPI
-from vector3d import Vector3d, sumOf
+from .vector3d import Vector3d, sumOf
 
 from math import acos, asin, atan2, copysign, cos, hypot, sin, tan
 

@@ -9,8 +9,8 @@ and U{http://www.movable-type.co.uk/scripts/latlong-vectors.html}.
 
 @newfield example: Example, Examples
 '''
-from dms   import F_D, F_DMS, latDMS, lonDMS, parseDMS
-from utils import EPS, R_M, favg, fsum, len2, map1, wrap90, wrap180
+from .dms   import F_D, F_DMS, latDMS, lonDMS, parseDMS
+from .utils import EPS, R_M, favg, fsum, len2, map1, wrap90, wrap180
 
 from math import asin, cos, degrees, radians, sin
 

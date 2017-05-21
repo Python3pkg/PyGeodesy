@@ -6,7 +6,7 @@
 __all__ = ('Tests',)
 __version__ = '17.04.22'
 
-from tests import Tests as _Tests
+from .tests import Tests as _Tests
 
 from pygeodesy import R_M, Datum, Datums, Ellipsoid, Ellipsoids, \
                       fStr, Transform, Transforms

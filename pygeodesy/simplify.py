@@ -53,8 +53,8 @@ Tested with 64-bit Python 2.6.9, 2.7.13, 3.5.3 and 3.6.0 on macOS
 @newfield example: Example, Examples
 '''
 
-from datum import R_M
-from utils import EPS, len2, radiansPI, wrap180
+from .datum import R_M
+from .utils import EPS, len2, radiansPI, wrap180
 
 from math  import cos, degrees, radians
 

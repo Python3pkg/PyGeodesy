@@ -13,7 +13,7 @@ __version__ = '17.04.07'
 
 if __name__ == '__main__':
 
-    from tests import Tests
+    from .tests import Tests
 
     from pygeodesy import Datums, F_D, \
                           ellipsoidalNvector, ellipsoidalVincenty, \

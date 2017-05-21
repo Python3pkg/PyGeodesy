@@ -6,7 +6,7 @@
 __all__ = ('Tests',)
 __version__ = '17.04.07'
 
-from tests import Tests as _Tests
+from .tests import Tests as _Tests
 
 from pygeodesy import mgrs
 

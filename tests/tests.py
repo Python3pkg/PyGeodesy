@@ -27,8 +27,8 @@ __all__ = ('versions', 'Tests',
 __version__ = '17.05.15'
 
 try:
-    _int = int, long
-    _str = basestring
+    _int = int, int
+    _str = str
 except NameError:  # Python 3+
     _int = int
     _str = str
@@ -101,7 +101,7 @@ class Tests(object):
 
     def printf(self, fmt, *args, **kwds):  # nl=0
         nl = '\n' * kwds.get('nl', 0)
-        print(nl + self._prefix + (fmt % args))
+        print((nl + self._prefix + (fmt % args)))
 
     def results(self, nl=0):
         n = self.failed
@@ -144,7 +144,7 @@ class Tests(object):
         self.test('lat/lonDMS F_DMS', p.toStr(F_DMS, 0), '''52°12'17"N, 000°08'26"E''')
         self.test('lat/lonDMS F_DMS', p.toStr(F_DMS, 1), '''52°12'17.0"N, 000°08'26.0"E''')
         self.test('lat/lonDMS F_RAD', p.toStr(F_RAD, 6), '0.911144N, 0.002453E')
-        q = LatLon(*map(degrees, p.to2ab()))
+        q = LatLon(*list(map(degrees, p.to2ab())))
         self.test('equals', q.equals(p), 'True')
 
         # <http://www.edwilliams.org/avform.htm#XTE>

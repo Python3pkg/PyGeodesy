@@ -50,9 +50,9 @@ or by converting to anothor datum:
 @newfield example: Example, Examples
 '''
 
-from datum import Datums
-from ellipsoidalBase import CartesianBase, LatLonEllipsoidalBase
-from utils import EPS, degrees90, degrees180, degrees360, radians
+from .datum import Datums
+from .ellipsoidalBase import CartesianBase, LatLonEllipsoidalBase
+from .utils import EPS, degrees90, degrees180, degrees360, radians
 
 from math import atan2, cos, hypot, sin, tan
 

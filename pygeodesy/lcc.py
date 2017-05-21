@@ -13,9 +13,9 @@ U{http://mathworld.wolfram.com/LambertConformalConicProjection.html}.
 @newfield example: Example, Examples
 '''
 
-from ellipsoidalBase import LatLonEllipsoidalBase as _LL
-from datum import _Based, Datums, _Enum
-from utils import EPS, PI_2, \
+from .ellipsoidalBase import LatLonEllipsoidalBase as _LL
+from .datum import _Based, Datums, _Enum
+from .utils import EPS, PI_2, \
                   degrees90, degrees180, false2f, fStr, radians
 
 from math import atan, copysign, cos, hypot, log, sin, sqrt, tan
@@ -495,7 +495,7 @@ if __name__ == '__main__':
 
     # print all
     for c in (Conics,):
-        print('\n%r' % (c,))
+        print(('\n%r' % (c,)))
 
 # **) MIT License
 #

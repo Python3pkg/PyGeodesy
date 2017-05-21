@@ -193,7 +193,7 @@ def normDMS(strDMS, norm=''):
             strDMS = strDMS.replace(s, norm)
         strDMS = strDMS.rstrip(norm)
     else:
-        for s, S in _S_norm.items():
+        for s, S in list(_S_norm.items()):
             strDMS = strDMS.replace(s, S)
     return strDMS
 

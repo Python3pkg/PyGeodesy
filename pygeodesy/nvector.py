@@ -11,9 +11,9 @@ see U{http://www.movable-type.co.uk/scripts/latlong-vectors.html}.
 @newfield example: Example, Examples
 '''
 
-from bases import LatLonHeightBase
-from utils import fsum, len2
-from vector3d import Vector3d, sumOf as _sumOf
+from .bases import LatLonHeightBase
+from .utils import fsum, len2
+from .vector3d import Vector3d, sumOf as _sumOf
 
 # from math import cos, sin
 

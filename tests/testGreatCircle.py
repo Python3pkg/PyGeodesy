@@ -37,7 +37,7 @@ __version__ = '17.05.15'
 
 if __name__ == '__main__':
 
-    from tests import Tests as _Tests
+    from .tests import Tests as _Tests
     from pygeodesy import F_D, F_DMS, bearingDMS, \
                           sphericalNvector, sphericalTrigonometry
 

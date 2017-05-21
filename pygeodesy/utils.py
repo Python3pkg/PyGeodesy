@@ -38,7 +38,7 @@ try:  # Luciano Ramalho, "Fluent Python", page 395, O'Reilly, 2016
     from numbers import Real as _Scalars  #: (INTERNAL) Scalar objects
 except ImportError:
     try:
-        _Scalars = int, long, float  #: (INTERNAL) Scalar objects (tuple)
+        _Scalars = int, int, float  #: (INTERNAL) Scalar objects (tuple)
     except NameError:
         _Scalars = int, float  #: (INTERNAL) Scalar objects (tuple)
 
@@ -46,7 +46,7 @@ try:  # similarly ...
     from numbers import Integral as _Ints  #: (INTERNAL) Int objects
 except ImportError:
     try:
-        _Ints = int, long  #: (INTERNAL) Int objects (tuple)
+        _Ints = int, int  #: (INTERNAL) Int objects (tuple)
     except NameError:  # Python 3+
         _Ints = int  #: (INTERNAL) Int objects (tuple)
 
@@ -186,7 +186,7 @@ def fdot(a, *b):
     if not len(a) == len(b):
         raise ValueError('unequal len: %s vs %s' % (len(a), len(b)))
 
-    return fsum(map(mul, a, b))
+    return fsum(list(map(mul, a, b)))
 
 
 def fdot3(a, b, c, start=0):
@@ -208,7 +208,7 @@ def fdot3(a, b, c, start=0):
     if not len(a) == len(b) == len(c):
         raise ValueError('unequal len: %s vs %s vs %s' % (len(a), len(b), len(c)))
 
-    m3 = map(mul3, a, b, c)
+    m3 = list(map(mul3, a, b, c))
     if start:
         m3 = (start,) + tuple(m3)
     return fsum(m3)
